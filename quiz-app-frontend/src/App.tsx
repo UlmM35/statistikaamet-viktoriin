@@ -1,9 +1,11 @@
+import "./App.css";
 import { useState } from "react";
 import { singleChoiceQuestions as questions } from "./data/questions";
 import { SingleChoiceQuestion, SingleChoiceResult } from "./types";
-import Question from "./components/Question";
-import ResultTable from "./components/ResultTable";
-import "./App.css";
+import Layout from "./components/Layout/Layout";
+import Question from "./components/Question/Question";
+import ResultTable from "./components/ResultTable/ResultTable";
+
 
 const App = () => {
   const [index, setIndex] = useState<number>(0);
@@ -49,41 +51,18 @@ const App = () => {
     setSelected(null);
   };
 
-  if (index >= total) {
-    return (
-      <div className="app-container">
-        <header className="app-header">
-          <div className="brand">Eesti Statistikaamet — Viktoriin</div>
-        </header>
-
-        <main>
-          <ResultTable results={results} score={score} total={total} restart={restartQuiz}/>
-        </main>
-
-      </div>
-    );
-  }
-
   return (
-    <div className="app-container">
-      <header className="app-header">
-        <div className="brand">Eesti Statistikaamet — Viktoriin</div>
-      </header>
-
-      <main>
-        <Question
-          q={questions[index]}
-          selected={selected}
-          feedback={feedback}
-          onAnswer={handleAnswer}
-        />
-        <div className="progress">
-          Küsimus {index + 1} / {total}
-        </div>
-      </main>
-
-    </div>
+    <Layout>
+      {index >= total ? (
+        <ResultTable results={results} score={score} total={total} restart={restartQuiz} />
+      ) : (
+        <>
+          <Question q={questions[index]} selected={selected} feedback={feedback} onAnswer={handleAnswer} />
+          <div className="progress">Küsimus {index + 1} / {total}</div>
+        </>
+      )}
+    </Layout>
   );
-};
-
+  
+}
 export default App;

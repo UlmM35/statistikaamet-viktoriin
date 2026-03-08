@@ -1,3 +1,7 @@
+html, body, #root {
+  height: 100%;
+}
+
 :root {
   --stat-black: #000000;
   --stat-white: #ffffff;
@@ -19,20 +23,8 @@ body {
   background-size: 22px 22px;
 }
 
-.app-container {
-  max-width: 720px;
-  margin: 40px auto;
-  padding: 20px;
-}
-
-.app-header {
-  margin-bottom: 30px;
-}
-
-.brand {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 1px;
+main {
+  flex: 1;
 }
 
 .card {
@@ -41,81 +33,6 @@ body {
   border-radius: var(--radius);
   padding: 24px;
   margin-bottom: 20px;
-}
-
-.question-text {
-  font-size: 18px;
-  margin-bottom: 16px;
-}
-
-.options {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.option-btn {
-  padding: 12px;
-  border: 1px solid var(--stat-gray);
-  background: var(--stat-white);
-  cursor: pointer;
-  font-size: 15px;
-  text-align: left;
-}
-
-.option-btn:hover {
-  background: var(--stat-black);
-}
-
-.option-btn.selected {
-  border: 2px solid var(--stat-black);
-}
-
-.feedback {
-  margin-top: 12px;
-  font-weight: 600;
-}
-
-.feedback.correct {
-  color: green;
-}
-
-.feedback.wrong {
-  color: red;
-}
-
-.results-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 16px;
-}
-
-.results-table th,
-.results-table td {
-  border-bottom: 1px solid var(--stat-gray);
-  padding: 10px;
-  text-align: left;
-}
-
-.score {
-  font-weight: 700;
-  margin-top: 10px;
-}
-
-.personal-msg {
-  margin-top: 10px;
-}
-
-.progress {
-  margin-top: 10px;
-  color: var(--stat-gray-dark);
-}
-
-.app-footer {
-  text-align: center;
-  margin-top: 20px;
-  color: var(--stat-black);
-  font-size: 13px;
 }
 
 button {

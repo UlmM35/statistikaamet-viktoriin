@@ -1,4 +1,5 @@
-import { SingleChoiceQuestion } from "../types";
+import "./Question.css"
+import { SingleChoiceQuestion } from "../../types";
 
 interface Props {
   q: SingleChoiceQuestion;

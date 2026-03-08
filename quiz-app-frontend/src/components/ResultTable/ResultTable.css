@@ -1,0 +1,26 @@
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.results-table th,
+.results-table td {
+  border-bottom: 1px solid var(--stat-gray);
+  padding: 10px;
+  text-align: left;
+}
+
+.score {
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.personal-msg {
+  margin-top: 10px;
+}
+
+.progress {
+  margin-top: 10px;
+  color: var(--stat-gray-dark);
+}

@@ -1,4 +1,5 @@
-import { SingleChoiceResult } from "../types";
+import "./ResultTable.css"
+import { SingleChoiceResult } from "../../types";
 
 interface Props {
   results: SingleChoiceResult[];
