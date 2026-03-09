@@ -47,3 +47,5 @@ export interface TrueFalseResult extends BaseResult {
 
 export type QuestionResult = SingleChoiceResult | MultipleChoiceResult | TrueFalseResult;
 
+export type AnswerType = string | string[] | boolean;
+

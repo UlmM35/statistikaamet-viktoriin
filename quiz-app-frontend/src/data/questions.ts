@@ -1,6 +1,6 @@
 import { MultipleChoiceQuestion, QuizQuestion, SingleChoiceQuestion, TrueFalseQuestion } from "../types";
 
-export const singleChoiceQuestions: SingleChoiceQuestion[] = [
+const singleChoiceQuestions: SingleChoiceQuestion[] = [
   {
     id: 1,
     question: "Mis on Eesti pealinn?",
@@ -73,7 +73,7 @@ export const singleChoiceQuestions: SingleChoiceQuestion[] = [
   },
 ];
 
-export const multipleChoiceQuestions: MultipleChoiceQuestion[] = [
+const multipleChoiceQuestions: MultipleChoiceQuestion[] = [
   {
     id: 11,
     type: "multiple",
@@ -146,7 +146,7 @@ export const multipleChoiceQuestions: MultipleChoiceQuestion[] = [
   },
 ];
 
-export const trueFalseQuestions: TrueFalseQuestion[] = [
+const trueFalseQuestions: TrueFalseQuestion[] = [
   {
     id: 21,
     type: "truefalse",

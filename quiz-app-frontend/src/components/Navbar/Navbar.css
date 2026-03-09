@@ -3,9 +3,6 @@
   align-items: center;
   justify-content: space-between;
   background-color: #050505;
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
-.navbar-left-text {
-    color: white;
-}

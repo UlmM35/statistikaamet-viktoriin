@@ -1,25 +1,29 @@
 import "./App.css";
 import { useState } from "react";
-import { singleChoiceQuestions as questions } from "./data/questions";
-import { SingleChoiceQuestion, SingleChoiceResult } from "./types";
+import { questions } from "./data/questions";
+import { QuizQuestion, QuestionResult, AnswerType } from "./types";
+import { getRandomQuestions } from "./utils/randomQuestions";
+import { checkAnswer } from "./utils/checkAnswer";
 import Layout from "./components/Layout/Layout";
 import Question from "./components/Question/Question";
-import ResultTable from "./components/ResultTable/ResultTable";
-
+import ResultScreen from "./components/ResultTable/ResultScreen";
 
 const App = () => {
+  const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>(() => getRandomQuestions(questions, 10))
   const [index, setIndex] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
-  const [results, setResults] = useState<SingleChoiceResult[]>([]);
+  const [results, setResults] = useState<QuestionResult[]>([]);
   const [feedback, setFeedback] = useState<boolean | null>(null);
-  const [selected, setSelected] = useState<string | null>(null);
+  const [selected, setSelected] = useState<AnswerType | null>(null);
 
-  const total = questions.length;
+  const total = quizQuestions.length;
 
-  const handleAnswer = (option: string) => {
-    setSelected(option);
-    const current: SingleChoiceQuestion = questions[index];
-    const correct = option === current.correct;
+  const handleAnswer = (answer: AnswerType) => {
+    setSelected(answer);
+
+    const current: QuizQuestion = quizQuestions[index];
+    const correct: boolean = checkAnswer(answer, current);
+
     setFeedback(correct);
 
     if (correct) {
@@ -30,10 +34,11 @@ const App = () => {
       ...prev,
       {
         id: current.id,
-        type: "single",
-        question: current.question, 
-        answer: option, 
-        correct},
+        question: current.question,
+        correct,
+        type: current.type,
+        answer,
+      } as QuestionResult,
     ]);
 
     window.setTimeout(() => {
@@ -49,15 +54,16 @@ const App = () => {
     setResults([]);
     setFeedback(null);
     setSelected(null);
+    setQuizQuestions(getRandomQuestions(questions, 10));
   };
 
   return (
     <Layout>
       {index >= total ? (
-        <ResultTable results={results} score={score} total={total} restart={restartQuiz} />
+        <ResultScreen results={results} score={score} total={total} restart={restartQuiz} />
       ) : (
         <>
-          <Question q={questions[index]} selected={selected} feedback={feedback} onAnswer={handleAnswer} />
+          <Question q={quizQuestions[index]} selected={selected} feedback={feedback} onAnswer={handleAnswer} />
           <div className="progress">Küsimus {index + 1} / {total}</div>
         </>
       )}

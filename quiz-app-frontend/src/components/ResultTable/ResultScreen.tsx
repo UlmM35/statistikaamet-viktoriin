@@ -1,14 +1,14 @@
-import "./ResultTable.css"
-import { SingleChoiceResult } from "../../types";
+import "./ResultScreen.css"
+import { QuestionResult } from "../../types";
 
 interface Props {
-  results: SingleChoiceResult[];
+  results: QuestionResult[];
   score: number;
   total: number;
   restart: () => void;
 };
 
-const ResultTable = ({ results, score, total, restart }: Props) => {
+const ResultScreen = ({ results, score, total, restart }: Props) => {
   const getMessage = (s: number): string => {
     if (s === total) {
         return "Suurepärane — kõik vastused õiged!";
@@ -51,4 +51,4 @@ const ResultTable = ({ results, score, total, restart }: Props) => {
   );
 };
 
-export default ResultTable;
+export default ResultScreen;
