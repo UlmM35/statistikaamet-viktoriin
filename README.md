@@ -1,6 +1,11 @@
-# Statistikaamet Viktoriinirakendus
+# Statistikaamet viktoriinirakendus
 
 A quiz app built with React and TypeScript, with Playwright tests.
+
+
+## Website link
+
+https://statistikaamet-viktoriin.vercel.app/
 
 ## Tech stack
 
