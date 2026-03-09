@@ -43,3 +43,19 @@
   font-weight: 700;
   letter-spacing: 1px;
 }
+
+@media (max-width: 480px) {
+  .app-container {
+    margin: 16px auto;
+    padding: 12px;
+  }
+
+  .dots {
+    padding: 0 1rem;
+  }
+
+  .dots-name {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+}

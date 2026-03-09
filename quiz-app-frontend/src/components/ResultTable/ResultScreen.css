@@ -20,3 +20,35 @@
   margin-top: 10px;
 }
 
+@media (max-width: 480px) {
+  .results-table th,
+  .results-table td {
+    padding: 8px 6px;
+    font-size: 13px;
+  }
+
+  .results-table thead {
+    display: none;
+  }
+
+  .results-table tr {
+    display: block;
+    margin-bottom: 12px;
+    border-bottom: 2px solid var(--stat-gray);
+  }
+
+  .results-table td {
+    display: block;
+    border-bottom: none;
+    padding: 4px 6px;
+  }
+
+  .results-table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--stat-gray-dark);
+  }
+}

@@ -42,5 +42,15 @@
 
 .feedback.wrong {
   color: var(--stat-gray-dark);
-  text-decoration: line-through;
+}
+
+@media (max-width: 480px) {
+  .question-text {
+    font-size: 16px;
+  }
+
+  .option-btn {
+    font-size: 14px;
+    padding: 14px 12px;
+  }
 }
