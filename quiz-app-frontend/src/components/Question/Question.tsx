@@ -6,23 +6,18 @@ interface Props {
   q: QuizQuestion;
   selected: AnswerType | null;
   feedback: boolean | null;
+  score: number;
   onAnswer: (option: AnswerType) => void;
 };
 
-const Question = ({ q, selected, feedback, onAnswer }: Props) => {
+const Question = ({ q, selected, feedback, onAnswer, score }: Props) => {
   const [multiSelected, setMultiSelected] = useState<string[]>([]);
 
-  const toggleMulti = (option: string) => {
-  setMultiSelected((previous) => {
-    const alreadySelected = previous.includes(option);
-
-    if (alreadySelected) {
-      return previous.filter((item) => item !== option);
-    }
-
-    return [...previous, option];
-  });
-};
+  const toggleMulti = (opt: string) => {
+    setMultiSelected((prev) =>
+      prev.includes(opt) ? prev.filter((p) => p !== opt) : [...prev, opt]
+    );
+  };
 
   const submitMulti = () => {
     onAnswer(multiSelected);
@@ -32,6 +27,8 @@ const Question = ({ q, selected, feedback, onAnswer }: Props) => {
   return (
     <div className="card question-card">
       <h2 className="question-text">{q.question}</h2>
+
+      <div className="question-score" data-testid="score">Praegune punktisumma: {score} / 10</div>
 
       {q.type === "single" && (
         <div className="options" role="list">

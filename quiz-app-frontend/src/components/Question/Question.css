@@ -3,6 +3,10 @@
   margin-bottom: 16px;
 }
 
+.question-score {
+  margin-bottom: 16px;
+}
+
 .options {
   display: flex;
   flex-direction: column;

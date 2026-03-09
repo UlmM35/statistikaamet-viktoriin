@@ -47,3 +47,19 @@ button:hover {
   background: black;
   color: white;
 }
+
+.progress {
+  margin-top: 10px;
+  color: var(--stat-black);
+}
+
+.restart-btn {
+  margin-top: 12px;
+  background: none;
+  border: 1px solid #ccc;
+  color: #888;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}

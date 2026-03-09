@@ -1,9 +1,9 @@
 import "./App.css";
+import { TIMEOUT_IN_MILLIS } from "./constants/constants";
 import { useState } from "react";
 import { questions } from "./data/questions";
 import { QuizQuestion, QuestionResult, AnswerType } from "./types";
-import { getRandomQuestions } from "./utils/randomQuestions";
-import { checkAnswer } from "./utils/checkAnswer";
+import { getRandomQuestions, checkAnswer } from "./utils/utils";
 import Layout from "./components/Layout/Layout";
 import Question from "./components/Question/Question";
 import ResultScreen from "./components/ResultTable/ResultScreen";
@@ -45,7 +45,7 @@ const App = () => {
       setFeedback(null);
       setSelected(null);
       setIndex((i) => i + 1);
-    }, 900);
+    }, TIMEOUT_IN_MILLIS);
   };
 
   const restartQuiz = () => {
@@ -63,8 +63,9 @@ const App = () => {
         <ResultScreen results={results} score={score} total={total} restart={restartQuiz} />
       ) : (
         <>
-          <Question q={quizQuestions[index]} selected={selected} feedback={feedback} onAnswer={handleAnswer} />
+          <Question q={quizQuestions[index]} selected={selected} feedback={feedback} onAnswer={handleAnswer} score={score} />
           <div className="progress">Küsimus {index + 1} / {total}</div>
+          <button onClick={restartQuiz}>Alusta uuesti</button>
         </>
       )}
     </Layout>

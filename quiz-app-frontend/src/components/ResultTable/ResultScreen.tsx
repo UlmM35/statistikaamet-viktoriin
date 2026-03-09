@@ -1,6 +1,5 @@
 import "./ResultScreen.css"
-import { getMessage } from "../../utils/getMessage";
-import { formatAnswer } from "../../utils/formatAnswer";
+import { getMessage, formatAnswer } from "../../utils/utils";
 import { QuestionResult } from "../../types";
 
 interface Props {
@@ -10,7 +9,9 @@ interface Props {
   restart: () => void;
 };
 
-const ResultScreen = ({ results, score, total, restart }: Props) => {
+const ResultScreen = ({ results, score, restart }: Props) => {
+
+  const total = results.length;
 
   return (
     <div className="card result-card">
