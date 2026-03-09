@@ -12,11 +12,17 @@ interface Props {
 const Question = ({ q, selected, feedback, onAnswer }: Props) => {
   const [multiSelected, setMultiSelected] = useState<string[]>([]);
 
-  const toggleMulti = (opt: string) => {
-    setMultiSelected((prev) =>
-      prev.includes(opt) ? prev.filter((p) => p !== opt) : [...prev, opt]
-    );
-  };
+  const toggleMulti = (option: string) => {
+  setMultiSelected((previous) => {
+    const alreadySelected = previous.includes(option);
+
+    if (alreadySelected) {
+      return previous.filter((item) => item !== option);
+    }
+
+    return [...previous, option];
+  });
+};
 
   const submitMulti = () => {
     onAnswer(multiSelected);
@@ -29,7 +35,7 @@ const Question = ({ q, selected, feedback, onAnswer }: Props) => {
 
       {q.type === "single" && (
         <div className="options" role="list">
-          {q.options?.map((opt) => (
+          {q.options.map((opt) => (
             <button
               key={opt}
               className={`option-btn ${selected === opt ? "selected" : ""}`}

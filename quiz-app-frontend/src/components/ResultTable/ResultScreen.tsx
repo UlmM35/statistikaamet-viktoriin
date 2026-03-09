@@ -1,4 +1,6 @@
 import "./ResultScreen.css"
+import { getMessage } from "../../utils/getMessage";
+import { formatAnswer } from "../../utils/formatAnswer";
 import { QuestionResult } from "../../types";
 
 interface Props {
@@ -9,15 +11,6 @@ interface Props {
 };
 
 const ResultScreen = ({ results, score, total, restart }: Props) => {
-  const getMessage = (s: number): string => {
-    if (s === total) {
-        return "Suurepärane — kõik vastused õiged!";
-    }
-    if (s >= Math.ceil(total * 0.6)) {
-        return "Tubli töö!";
-    } 
-    return "Harjuta veel!";
-  };
 
   return (
     <div className="card result-card">
@@ -38,14 +31,14 @@ const ResultScreen = ({ results, score, total, restart }: Props) => {
           {results.map((r, index) => (
             <tr key={index}>
               <td>{r.question}</td>
-              <td>{r.answer}</td>
+              <td>{formatAnswer(r)}</td>
               <td style={{ color: r.correct ? "green": "red"}}>{r.correct ? "Õige" : "Vale"}</td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      <p className="personal-msg">{getMessage(score)}</p>
+      <p className="personal-msg">{getMessage(score, total)}</p>
       <button onClick={restart}>Proovi uuesti</button>
     </div>
   );
