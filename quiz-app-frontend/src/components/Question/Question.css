@@ -24,6 +24,7 @@
 
 .option-btn:hover {
   background: var(--stat-black);
+  color: var(--stat-white);
 }
 
 .option-btn.selected {
@@ -36,9 +37,10 @@
 }
 
 .feedback.correct {
-  color: green;
+  color: var(--stat-black);
 }
 
 .feedback.wrong {
-  color: red;
+  color: var(--stat-gray-dark);
+  text-decoration: line-through;
 }

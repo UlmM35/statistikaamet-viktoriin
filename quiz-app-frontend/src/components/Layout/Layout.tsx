@@ -10,10 +10,17 @@ interface Props {
 const Layout = ({ children }: Props) => {
   return (
     <div className="app-wrapper">
-       <Navbar />
+      <Navbar />
+      <div className="dots">
+        <div className="dots-logo">
+        <div className="dots-name">
+          Eesti<br />Statistika
+        </div>
+      </div>
+    </div>
       <div className="app-container">
         <header className="app-header">
-          <div className="brand">Eesti Statistikaamet — Viktoriin</div>
+          <div className="brand">Eesti Statistika — Viktoriin</div>
         </header>
 
         <main>

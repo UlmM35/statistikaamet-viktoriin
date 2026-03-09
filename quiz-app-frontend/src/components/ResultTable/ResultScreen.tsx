@@ -5,7 +5,6 @@ import { QuestionResult } from "../../types";
 interface Props {
   results: QuestionResult[];
   score: number;
-  total: number;
   restart: () => void;
 };
 

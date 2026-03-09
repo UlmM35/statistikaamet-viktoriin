@@ -60,7 +60,7 @@ const App = () => {
   return (
     <Layout>
       {index >= total ? (
-        <ResultScreen results={results} score={score} total={total} restart={restartQuiz} />
+        <ResultScreen results={results} score={score} restart={restartQuiz} />
       ) : (
         <>
           <Question q={quizQuestions[index]} selected={selected} feedback={feedback} onAnswer={handleAnswer} score={score} />

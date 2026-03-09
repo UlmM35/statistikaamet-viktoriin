@@ -16,11 +16,8 @@ html, body, #root {
 body {
   margin: 0;
   font-family: var(--font-main);
-  background: var(--stat-gray-light);
+  background: var(--stat-white);
   color: var(--stat-black);
-
-  background-image: radial-gradient(rgba(0,0,0,0.18) 1px, transparent 1px);
-  background-size: 22px 22px;
 }
 
 main {
