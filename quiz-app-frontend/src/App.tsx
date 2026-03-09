@@ -41,6 +41,7 @@ const App = () => {
       } as QuestionResult,
     ]);
 
+    // Short delay before next question to show feedback
     window.setTimeout(() => {
       setFeedback(null);
       setSelected(null);
@@ -63,9 +64,15 @@ const App = () => {
         <ResultScreen results={results} score={score} restart={restartQuiz} />
       ) : (
         <>
-          <Question q={quizQuestions[index]} selected={selected} feedback={feedback} onAnswer={handleAnswer} score={score} />
+          <Question 
+            q={quizQuestions[index]} 
+            selected={selected} 
+            feedback={feedback} 
+            onAnswer={handleAnswer} 
+            score={score}
+          />
           <div className="progress">Küsimus {index + 1} / {total}</div>
-          <button onClick={restartQuiz}>Alusta uuesti</button>
+          <button className="restart" onClick={restartQuiz}>Alusta uuesti</button>
         </>
       )}
     </Layout>
