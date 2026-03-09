@@ -31,6 +31,7 @@ export const checkAnswer = (answer: AnswerType, current: QuizQuestion): boolean 
         case "single":
             return answer === current.correct;
         case "multiple": {
+            // Sort both arrays so answer order doesn't matter
             const a = Array.isArray(answer) ? [...answer].sort() : [];
             const b = [...current.correct].sort();
             return a.length === b.length && a.every((v, i) => v === b[i]);

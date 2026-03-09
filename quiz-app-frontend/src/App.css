@@ -32,21 +32,32 @@ main {
   margin-bottom: 20px;
 }
 
+.score-footer {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.score {
+  margin: 0;
+}
+
 button {
   margin-top: 16px;
   padding: 10px 16px;
   border: 1px solid black;
-  background: white;
+  background: var(--stat-white);
   cursor: pointer;
 }
 
 button:hover {
-  background: black;
-  color: white;
+  background: var(--stat-black);
+  color: var(--stat-white);
 }
 
 .progress {
-  margin-top: 10px;
   color: var(--stat-black);
 }
 

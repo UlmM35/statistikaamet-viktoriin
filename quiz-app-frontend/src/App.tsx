@@ -69,10 +69,12 @@ const App = () => {
             selected={selected} 
             feedback={feedback} 
             onAnswer={handleAnswer} 
-            score={score}
           />
-          <div className="progress">Küsimus {index + 1} / {total}</div>
-          <button className="restart" onClick={restartQuiz}>Alusta uuesti</button>
+          <div className="score-footer">
+            <div className="progress">Küsimus {index + 1} / {total}</div>
+            <div data-testid="score">Praegune punktisumma: {score} / {total}</div>
+          </div>
+          <button onClick={restartQuiz}>Alusta uuesti</button>
         </>
       )}
     </Layout>
