@@ -9,10 +9,10 @@ https://statistikaamet-viktoriin.vercel.app/
 
 ## Tech stack
 
-- React 19
+- React
 - TypeScript
 - Vite
-- Playwright (E2E tests)
+- Playwright
 
 ## Running locally
 
